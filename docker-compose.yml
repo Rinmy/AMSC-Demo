@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  amsc:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: amsc-demo
+    container_name: amsc-demo
+    tty: true
+    stdin_open: true
+    restart: always
+    working_dir: /amsc/
+    volumes:
+      - ./src/:/amsc/
+    command: ruby discord.rb
